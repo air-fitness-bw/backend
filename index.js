@@ -12,7 +12,9 @@ var message = randomMessage[Math.floor(Math.random()*randomMessage.length)];
 
 // middleware
 // route imports
+const usersRouter = require('./usr/user-route');
 // use routes
+server.use('/users', usersRouter);
 
 server.get('/', (req, res) => {
     res.status(200).json(message) //random message appears here
