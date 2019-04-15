@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,16 +14,22 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/air-fitness-bw/backend/issues"
   },
   "homepage": "https://github.com/air-fitness-bw/backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.16.4"
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "knex": "^0.16.5",
+    "knex-cleaner": "^1.1.4",
+    "sqlite3": "^4.0.6"
   },
   "devDependencies": {
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2"
   }
 }
