@@ -1,9 +1,10 @@
 require('dotenv').config();
-
+const bcrypt = require('bcryptjs')
 const router = require('express').Router();
 const Users = require('./user-controller');
 const tokenGenerator = require('../auth/tokenGenerator');
 const { auth } = require('../auth/auth-route');
+
 
 router.get('/', (req, res) => {
 Users.find()
@@ -14,7 +15,7 @@ Users.find()
 });
 
 //register
-router.post('/api/reg', async (req, res) => {
+router.post('/reg', async (req, res) => {
     const { username, password } = req.body;
     const newUser = req.body;
 
@@ -48,7 +49,7 @@ try {
 });
 
 //log in send token
-router.post('/api/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
 if ((!username, !password)) {
