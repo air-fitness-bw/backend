@@ -8,21 +8,21 @@ findById
 };
 
 function find() {
-return db('users').select('id', 'username', 'password','role');
+return db('class').select('class_id', 'username', 'password', 'startDate','schedule','location','zipcode','description','uses','instructor_id');
 }
 
 function findBy(filter) {
-return db('users').where(filter);
+return db('class').where(filter);
 }
 
 async function add(user) {
-const [id] = await db('users').insert(user);
+const [id] = await db('class').insert(user);
 
 return findById(id);
 }
 
 function findById(id) {
-return db('users')
+return db('class')
     .where({ id })
     .first();
 }

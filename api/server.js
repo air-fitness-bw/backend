@@ -1,6 +1,6 @@
 const express = require('express');
 const userRouter = require('./route/user-route');
-
+const classRouter = require('./route/class-route');
 const server = express();
 
 //middleware
@@ -13,6 +13,8 @@ server.use(cors({
     origin: true
 }));
 
+//endpoints
+server.use('/api/class', classRouter)
 server.use('/api/users', userRouter);
 
 module.exports = server;
