@@ -5,9 +5,6 @@ module.exports = {
     connection: {
       filename: './database/dev.sqlite3'
     },
-    migrations: {
-      tableName: 'knex_migrations'
-    },
       useNullAsDefault: true, 
       migrations: {
         directory: './database/migrations',

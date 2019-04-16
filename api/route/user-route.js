@@ -22,6 +22,7 @@ router.post('/reg', async (req, res) => {
 if (password) {
 const hash = bcrypt.hashSync(newUser.password, 8);
     newUser.password = hash;
+    //console.log(hash);
     }
 
 if ((!username, !password)) {
@@ -31,7 +32,7 @@ if ((!username, !password)) {
 }
 
 try {
-    const user = await users.add(newUser);
+    const user = await Users.add(newUser);
 
     if (user) {
     const token = tokenGenerator.newToken(user);
@@ -47,7 +48,6 @@ try {
     res.status(500).json({ message: 'Internal server error' });
     }
 });
-
 //log in send token
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
@@ -57,7 +57,7 @@ if ((!username, !password)) {
     }
 
 try {
-    const user = await users.getBy(username);
+    const user = await Users.getBy(username);
     
     if (user.username === 'admin' && user.password === 'password') {
         const token = tokenGenerator.newToken(user);
