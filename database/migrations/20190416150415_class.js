@@ -5,7 +5,7 @@ exports.up = function(knex) {
 
     c.integer('price').notNullable();
     c.string('name', 255).notNullable();
-    c.date('startDate');
+    c.string('startDate', 100);
     c.string('schedule', 500); //lower this value later
     c.string('location',500);//lower this value later
     c.string('zipcode',10);//lower this value later
