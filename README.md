@@ -15,9 +15,17 @@ bcrypt bcryptjs cors dotenv express faker helmet jsonwebtoken knex knex-cleaner 
 
 # Schema
 ![Air Fitness Database Schema](schema-info/schemasnap.png)
-may require changes
+pending
 
 # RESTful API end points
 
-coming soon
+GET
+List of users
+ ```/api/users```
+POST
+Login 
+```/api/user/login``
+Register 
+```/api/users/reg
+more coming soon
 
