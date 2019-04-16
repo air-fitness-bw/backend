@@ -14,8 +14,8 @@ An easy to use app for open space fitness classes. Giving instructors and client
 bcrypt bcryptjs cors dotenv express faker helmet jsonwebtoken knex knex-cleaner pg sqlite3 jest nodemon supertest
 
 # Schema
-
-coming soon
+![Air Fitness Database Schema](schema-info/schemasnap.png)
+may require changes
 
 # RESTful API end points
 
