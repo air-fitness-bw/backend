@@ -3,12 +3,12 @@ An easy to use app for open space fitness classes. Giving instructors and client
 
 # Project Goals
 1. Onboarding for a new client and fitness instructor
-2. Ability for instructor to create punch pass categories for each type of group fitness class they offer (yoga, insanity, RIPPED, HIGH, pilates, etc.).
+2. Class and punch cards are intwined so clients now have 10 passes to each class upon class purchase
 3. Ability to easily create / setup a class time
 4. Ability to easily edit / delete a class 
 5. Ability for client to create an account and purchase a 10 class punch pass from an instructor.
 7. Punch pass updates for client as it’s used.
-8. Integrate paypal as a payment method. Ability for instructor to add people to a 'class 
+8. Integrate PayPal as a payment method. Ability for instructor to add people to a 'class 
 
 #  Frameworks / Libraries
 bcrypt bcryptjs cors dotenv express faker helmet jsonwebtoken knex knex-cleaner pg sqlite3 jest nodemon supertest
@@ -22,10 +22,13 @@ pending
 GET
 List of users
  ```/api/users```
+ List of classes
+ ```/api/class```
 POST
 Login 
-```/api/user/login``
+```/api/user/login```
 Register 
-```/api/users/reg
+```/api/users/reg```
+
 more coming soon
 

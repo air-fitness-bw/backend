@@ -8,7 +8,7 @@ findById
 };
 
 function find() {
-return db('users').select('id', 'username', 'password','role');
+return db('users').select('id', 'username', 'password','role','name','email');
 }
 
 function findBy(filter) {
