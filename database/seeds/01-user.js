@@ -6,7 +6,6 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('users').insert([
         {
-          id: 1,
           username: 'admin',
           password: 'password',
           name: 'Indie Blount',
@@ -14,7 +13,6 @@ exports.seed = function(knex) {
           role: 'instructor'
         },
         {
-          id: 2,
           username: 'Fredruns',
           password: 'rrii$wGPow',
           name: 'Fred Quick',
@@ -22,7 +20,6 @@ exports.seed = function(knex) {
           role: 'instructor'
         }, 
         {
-          id: 3,
           username: 'BestofTheBest',
           password: 'p0ssw0rd',
           name: 'Archer Sanchez',
@@ -30,7 +27,6 @@ exports.seed = function(knex) {
           role: 'client'
         },
         {
-          id: 4,
           username: 'largebarrel',
           password: 'goathammer',
           name: 'Barely Lopez',
@@ -46,7 +42,6 @@ exports.seed = function(knex) {
           role: 'client'
         },
         {
-          id: 6,
           username: 'secretKim',
           password: '40012may5th',
           name: 'Kim Melon',
@@ -54,7 +49,6 @@ exports.seed = function(knex) {
           role: 'client'
         },
         {
-          id: 7,
           username: 'level1stealtharcher',
           password: 'herokuwhy?',
           name: 'Jason Born',

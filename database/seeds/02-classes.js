@@ -6,7 +6,6 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('class').insert([
         {
-          id: 1,
           class_id: 1,
           price: 30 ,
           name: 'Combat Yoga',
@@ -19,7 +18,6 @@ exports.seed = function(knex) {
           instructor_id: 1
         },
         {
-          id: 2,
           class_id: 2,
           price: 45 ,
           name: 'Ro Sam Bo in the Morning',
@@ -32,7 +30,6 @@ exports.seed = function(knex) {
           instructor_id: 1
         },
         {
-          id: 3,
           class_id: 3,
           price: 200 ,
           name: 'Run Photography lessons',
