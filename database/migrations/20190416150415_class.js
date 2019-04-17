@@ -1,7 +1,6 @@
 exports.up = function(knex) {
     return knex.schema.createTable('class', c => {
     c.increments();
-    c.integer('class_id').notNullable().unique();
 
     c.integer('price').notNullable();
     c.string('name', 255).notNullable();
@@ -13,9 +12,9 @@ exports.up = function(knex) {
     c.integer('uses').notNullable();
     c.timestamps(true, true);
     c.integer('instructor_id').notNullable()
-    .references("role")
+    .references("id")
     .inTable("users")
-    .onDelete("RESTRICT")
+    .onDelete("CASCADE")
     .onUpdate("CASCADE"); //foreign key linking instructors to classes they have created
 });
 };

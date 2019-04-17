@@ -1,28 +1,51 @@
-const db = require('../../database/dbconfig');
+const db = require("../../database/dbconfig");
 
 module.exports = {
-add,
-find,
-findBy,
-findById
+    getClass,
+    getClassById,
+    addCl,
+    updateClass,
+    deleteClass,
+
 };
 
-function find() {
-return db('class').select('class_id', 'username', 'password', 'startDate','schedule','location','zipcode','description','uses','instructor_id');
+async function getClass() { 
+    const classes = await db("class");
+    return classes;
 }
 
-function findBy(filter) {
-return db('class').where(filter);
-}
-
-async function add(cl) {
-const [id] = await db('class').insert(cl);
-
-return findById(id);
-}
-
-function findById(id) {
-return db('class')
+async function getClassById(id) {
+    const c = await db("class")
     .where({ id })
     .first();
+
+    return c;
+}
+
+async function addCl(data) {
+    const [id] = await db("class")
+        .insert(data)
+        .returning("name");
+
+    const newClass = await getClassById(id);
+
+    return newClass;
+}
+
+async function updateClass(id, changes) {
+    const update = await db("class")
+        .where({ id })
+        .update(changes);
+
+    const putClass = await getClassById(update);
+
+    return putClass;
+}
+
+async function deleteClass(id) {
+    const deleted = await db("class")
+    .where({id })
+    .del();
+
+    return deleted;
 }

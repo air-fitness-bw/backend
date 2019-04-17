@@ -1,3 +1,10 @@
+const localPg ={
+  host: 'localhost',
+  database: 'dev',
+  user: 'admin',
+  password:'fitness'
+}
+const productionDbConnection = process.env.DATABASE_URL || localPg;
 module.exports = {
 
   development: {
@@ -31,20 +38,11 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    client: 'pg',
+    connection: productionDbConnection, // connection with DATABASE_URL
     pool: {
       min: 2,
       max: 10,
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done); }
-    },
-    migrations: {
-      tableName: 'knex_migrations'
     },
       useNullAsDefault: true, 
       migrations: {
