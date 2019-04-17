@@ -1,7 +1,7 @@
 require('dotenv').config();
 const router = require('express').Router();
 const Class = require('./class-controller');
-
+//get class list
 router.get("/", (req, res) => {
     Class.getClass()
     .then(data => {
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
         res.status(500).json(error);
     });
 });
-
+//get classs by ID
 router.get("/:id", (req, res) => {
     Class.getClassById(req.params.id)
     .then(data => {
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
     res.status(500).json(error);
     });
 });
-
+//post class
 router.post("/", (req, res) => {
 Class.addCl(req.body)
     .then(data => {

@@ -34,7 +34,7 @@ async function addCl(data) {
 
 async function updateClass(id, changes) {
     const update = await db("class")
-        .where({ insurer_id: id })
+        .where({ id })
         .update(changes);
 
     const putClass = await getClassById(update);
