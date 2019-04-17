@@ -38,6 +38,9 @@ Register
 Create Class
 `end point`
 
+Add class to client
+`end point`
+
 ### ✒️ PUT
 
 Edit Class
