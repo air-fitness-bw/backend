@@ -57,7 +57,8 @@ if ((!username, !password)) {
     }
 
 try {
-    const user = await Users.getBy(username);
+    const user = await Users.findBy(username);
+    console.log(user);
     
     if (user.username === 'admin' && user.password === 'password') {
         const token = tokenGenerator.newToken(user);
@@ -71,7 +72,7 @@ try {
         }
     }
     } catch (error) {
-    res.status(500).json({ message: 'Invalid credentials, please try again.' });
+    res.status(500).json({error, message: 'Invalid credentials, please try again.' });
     }
 });
 

@@ -11,11 +11,18 @@ An easy to use app for open space fitness classes. Giving instructors and client
 8. Integrate PayPal as a payment method. Ability for instructor to add people to a 'class 
 
 #  Frameworks / Libraries
-bcrypt bcryptjs cors dotenv express faker helmet jsonwebtoken knex knex-cleaner pg sqlite3 jest nodemon supertest
+bcrypt bcryptjs cors dotenv express faker helmet jsonwebtoken knex knex-cleaner pg sqlite3 jest nodemon supertest heroku 
 
 # Schema
-![Air Fitness Database Schema](schema-info/schemasnap.png)
+
+Sqlite3 used for development.
+
+Postgresql used in production.
+
+img:
 pending
+
+![]()
 
 # RESTful API end points
 
@@ -27,6 +34,9 @@ List of users
  List of classes
  ```/api/class``` 
 
+ List classes by id
+ `/api/class/:id`
+
 ### 💾 POST 
 
 Login 
@@ -36,20 +46,17 @@ Register
 `/api/users/reg`
 
 Create Class
-`end point`
-
-Add class to client
-`end point`
+`/api/class`
 
 ### ✒️ PUT
 
 Edit Class
-`end point`
+`/api/class/:id`
 
 ### ❌ DELETE
 
 Delete Class 
-`end point`
+`/api/class/:id`
 
 # Misc
 ### Random Message Function
@@ -66,5 +73,7 @@ and/or
 
 >const port = process.env.PORT || 9001;
 server.listen(port, () => console.log(`${message}\nserver live on: http://localhost:${port}\n`));
+
+
 
 
