@@ -13,15 +13,11 @@ https://dbdiagram.io/d
 Table classes {
   class_id int [pk]
   instructor_id int [ref: > users.id]
+  time datetime
   price int
-  timestamp datetime
-}
-
-Table punch {
-  punch_id int [pk]
-  instructor_id int [ref: > classes.class_id]
-  price int
+  description string
   uses int
   timestamp datetime
+  name string
 }
 ```

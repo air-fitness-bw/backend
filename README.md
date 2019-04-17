@@ -1,7 +1,7 @@
-# Air Fitness Backend
+# Air Fitness Backend 🏃💨
 An easy to use app for open space fitness classes. Giving instructors and clients the ability to manage their classes from their phone. Clients can search for classes in their specific area. Instructors now have a platform where they are not bound to holding classes at facilities and can take their classes into their own hands.
 
-# Project Goals
+# Project Goals 🗻
 1. Onboarding for a new client and fitness instructor
 2. Class and punch cards are intwined so clients now have 10 passes to each class upon class purchase
 3. Ability to easily create / setup a class time
@@ -19,16 +19,49 @@ pending
 
 # RESTful API end points
 
-GET
+### 📦  GET 
+
 List of users
  ```/api/users```
+
  List of classes
- ```/api/class```
-POST
+ ```/api/class``` 
+
+### 💾 POST 
+
 Login 
 ```/api/user/login```
-Register 
-```/api/users/reg```
 
-more coming soon
+Register 
+`/api/users/reg`
+
+Create Class
+`end point`
+
+### ✒️ PUT
+
+Edit Class
+`end point`
+
+### ❌ DELETE
+
+Delete Class 
+`end point`
+
+# Misc
+### Random Message Function
+I have found that using a function that out puts a random message into the console or directly into the '/' end point to be a great visual que to let yourself and others using the api know a change has occurred.
+>const randomMessage = ['string1','string2','string3'];
+
+>const message = randomMessage[Math.floor(Math.random()*randomMessage.length)];
+
+Then
+
+>server.get('/', (req, res) => { res.status(200).json(message)});
+
+and/or
+
+>const port = process.env.PORT || 9001;
+server.listen(port, () => console.log(`${message}\nserver live on: http://localhost:${port}\n`));
+
 
