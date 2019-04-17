@@ -34,7 +34,7 @@ exports.seed = function(knex) {
           role: 'client'
         },
         {
-          id: 5,
+
           username: 'Barry333',
           password: 'password1',
           name: 'Barry Block',
