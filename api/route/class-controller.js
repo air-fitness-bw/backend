@@ -8,7 +8,7 @@ findById
 };
 
 function find() {
-return db('class').select('class_id', 'startDate','schedule','location','zipcode','description','uses','instructor_id');
+return db('class').select('name', 'startDate','schedule','location','zipcode','description','uses','instructor_id');
 }
 
 function findBy(filter) {

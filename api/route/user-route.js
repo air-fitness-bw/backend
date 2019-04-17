@@ -45,7 +45,7 @@ try {
         res.status(500).json({ message: 'Registration failure' });
     }
     } catch (err) {
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({err, message: 'Internal server error' });
     }
 });
 //log in send token
