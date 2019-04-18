@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const relation = require('./rt-controller')
+const relationTable = require('./rt-controller')
 
 router.get("/" ,(req, res) => {
     relationTable.getPunch()
