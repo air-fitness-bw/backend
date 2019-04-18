@@ -1,8 +1,9 @@
 require('dotenv').config();
 const router = require('express').Router();
 const Class = require('./class-controller');
+const auth = require('../auth/auth-route')
 //get class list
-router.get("/", (req, res) => {
+router.get("/" ,(req, res) => {
     Class.getClass()
     .then(data => {
     if (data.length) {
@@ -16,8 +17,9 @@ router.get("/", (req, res) => {
     });
 });
 //get class by ID
-router.get("/:id", (req, res) => {
-    Class.getClassById(req.params.id)
+router.get("/" , auth , (req, res) => {
+    
+    Class.getClassById(req.decodedToken.id)
     .then(data => {
     if (data) {
         res.status(200).json(data);

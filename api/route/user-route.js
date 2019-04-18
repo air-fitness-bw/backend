@@ -25,7 +25,7 @@ const hash = bcrypt.hashSync(newUser.password, 8);
     //console.log(hash);
     }
 
-if ((!username, !password)) {
+if ((!username, !password, !role)) {
     res
     .status(400)
     .json({ message: 'Username and password required, please try again.' });
@@ -58,13 +58,9 @@ router.post('/login', async (req, res) => {
     }
 
     try {
-        console.log('we made it')
         const user = await Users.findBy(username);
-        console.log('we made it further')
         if (bcrypt.compareSync(password, user.password)) {
-            console.log('we made it even further')
             const token = tokenGenerator.newToken(user);
-            console.log('we made it to the end')
 
             res.status(200).json({message: 'Login successful', token});
             return
