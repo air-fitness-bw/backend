@@ -52,19 +52,21 @@ try {
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
-if ((!username, !password)) {
+if (!username || !password) {
     res.status(400).json({ message: 'Username and password required, please try again.' });
     }
 
 try {
     console.log('we made it')
     const user = await Users.findBy(username);
-
+    console.log('we made it further')
     if (bcrypt.compareSync(password, user.password)) {
+        console.log('we made it even further')
         const token = tokenGenerator.newToken(user);
+
         res.status(200).json({message: 'Login successful', id, token});
-        } else {
-        res.status(401).json({ message: 'Invalid credentials, please try again.' });
+    } else {
+    res.status(401).json({ message: 'Invalid credentials, please try again.' });
     }
     } catch (error) {
     res.status(500).json({ message: 'Invalid credentials, please try again.', error });
