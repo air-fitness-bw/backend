@@ -16,14 +16,15 @@ router.get("/" ,(req, res) => {
 });
 //returns empty bracket but adds to database
 router.post("/", (req, res) => {
-    r.addPunch(req.body)
-        .then(data => {
-        res.status(201).json(data);
-        })
-        .catch(error => {
+    r.addPunch(req.body) 
+    try{
+        console.log(res.body);
+        //.then(data => {
+        {res.status(201).json(data);
+        }}
+        catch(error) {
         res.status(500).json(error);
-        });
-    }); 
+    }});
 
 //put 
 router.put("/:id", (req, res) => {
@@ -32,7 +33,7 @@ router.put("/:id", (req, res) => {
     if (changeData) {
         res.status(200).json(changeData);
     } else {
-        res.status(404).json({ message: "no pucnh card for that class" });
+        res.status(404).json({ message: "no punch card for that class" });
     }
     })
     .catch(error => {
