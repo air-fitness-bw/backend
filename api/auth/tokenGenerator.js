@@ -10,7 +10,7 @@ function newToken(user) {
 const payload = {
         subject: user.id,
         username: user.username,
-        role: username.role
+        role: user.role
     };
     const options = {
       expiresIn: '1d'
