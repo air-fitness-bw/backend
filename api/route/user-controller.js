@@ -12,7 +12,7 @@ return db('users').select('id', 'username', 'password','role','name','email');
 }
 
 async function findBy(username) {
-    const [user] = await db('users').where('username', '=', username)
+    const [user] = await db('users').where('username', '=', username);
     return user
 }
 
