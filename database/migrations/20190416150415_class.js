@@ -2,14 +2,13 @@ exports.up = function(knex) {
     return knex.schema.createTable('class', c => {
     c.increments();
 
-    c.integer('price').notNullable();
+    c.decimal('price').notNullable();
     c.string('name', 255).notNullable();
-    c.string('startDate', 100);
-    c.string('schedule', 500); //lower this value later
-    c.string('location',500);//lower this value later
-    c.string('zipcode',10);//lower this value later
-    c.string('description',500);
-    c.integer('uses').notNullable();
+    c.date("start_date").notNullable();
+    c.string('schedule', 255);
+    c.string('location', 255);
+    c.string('zipcode',10);
+    c.string('description', 255);
     c.timestamps(true, true);
     c.integer('instructor_id').notNullable()
     .references("id")

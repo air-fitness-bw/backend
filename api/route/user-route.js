@@ -16,7 +16,7 @@ Users.find()
 
 //register
 router.post('/reg', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, role } = req.body;
     const newUser = req.body;
 
 if (password) {
@@ -25,16 +25,16 @@ const hash = bcrypt.hashSync(newUser.password, 8);
     //console.log(hash);
     }
 
-if ((!username, !password)) {
+if ((!username, !password, !role)) {
     res
     .status(400)
     .json({ message: 'Username and password required, please try again.' });
 }
-
 try {
     const user = await Users.add(newUser);
-
+    console.log(user);
     if (user) {
+        console.log('here')
     const token = tokenGenerator.newToken(user);
         res.status(201).json({
         message: 'Welcome!',
@@ -52,27 +52,24 @@ try {
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
-if ((!username, !password)) {
-    res.status(400).json({ message: 'Username and password required, please try again.' });
+    if (!username || !password) {
+        res.status(400).json({ message: 'Username and password required, please try again.' });
+        return
     }
 
-try {
-    const user = await Users.findBy(username);
-    console.log(user);
-    
-    if (user.username === 'admin' && user.password === 'password') {
-        const token = tokenGenerator.newToken(user);
-        res.status(200).json({message: 'Login successful',user_id: user.id,token});
-    } else if (user) {
-    if (bcrypt.compareSync(password, user.password)) {
-        const token = tokenGenerator.newToken(user);
-        res.status(200).json({message: 'Login successful', user_id: user.id, token});
+    try {
+        const user = await Users.findBy(username);
+        if (bcrypt.compareSync(password, user.password)) {
+            const token = tokenGenerator.newToken(user);
+            
+            res.status(200).json({message: 'Login successful', token});
+            return
         } else {
-        res.status(401).json({ message: 'Invalid credentials, please try again.' });
+            res.status(401).json({ message: 'Invalid credentials, please try again.' });
+            return
         }
-    }
     } catch (error) {
-    res.status(500).json({error, message: 'Invalid credentials, please try again.' });
+        res.status(500).json({ message: 'Invalid credentials, please try again.', error });
     }
 });
 

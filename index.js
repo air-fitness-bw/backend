@@ -1,4 +1,5 @@
 const server = require('./api/server');
+require('dotenv').config();
 
 //add a message to the Array and it will be added in randomly with the deploy, just another quick way to check if changes have occurred
 var randomMessage = ['Hello Human','whose api is this anyway?',':)','Who left the API running?','welcome to the machine'];

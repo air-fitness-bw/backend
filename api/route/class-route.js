@@ -1,8 +1,9 @@
 require('dotenv').config();
 const router = require('express').Router();
 const Class = require('./class-controller');
+
 //get class list
-router.get("/", (req, res) => {
+router.get("/all" ,(req, res) => {
     Class.getClass()
     .then(data => {
     if (data.length) {
@@ -15,8 +16,10 @@ router.get("/", (req, res) => {
         res.status(500).json(error);
     });
 });
-//get classs by ID
-router.get("/:id", (req, res) => {
+
+//get class by ID
+router.get("/solo/:id" , (req, res) => {
+
     Class.getClassById(req.params.id)
     .then(data => {
     if (data) {
@@ -30,9 +33,36 @@ router.get("/:id", (req, res) => {
     res.status(500).json(error);
     });
 });
+
+// get classes by role
+router.get("/role", async (req, res) => {
+    // check if its an instructor or client
+    const {role, subject} = req.decodedJwt;
+
+    try {
+        if (role == 'instructor') {
+            // if instructor get all classes where instructor_id is equal to user id
+            const classes = await Class.getInstructorClasses(subject)
+            // return classes
+            res.status(200).json(classes)
+            return
+        }
+        if (role == 'Client') {
+            // if client get all classes where client id is equal to user id
+            const classes = await Class.getClientClasses(subject)
+            // return classes
+            res.status(200).json(classes)
+            return
+        }
+    } catch (err) {
+        res.status(500).json(error);
+    }
+})
+
 //post class
-router.post("/", (req, res) => {
-Class.addCl(req.body)
+router.post("/" ,(req, res) => {
+    console.log('decded: ', req.decodedJwt);
+Class.addCl({...req.body, instructor_id: req.decodedJwt.subject})
     .then(data => {
     res.status(201).json(data);
     })
@@ -40,7 +70,7 @@ Class.addCl(req.body)
     res.status(500).json(error);
     });
 });
-
+// edit class
 router.put("/:id", (req, res) => {
     Class.updateClass(req.params.id, req.body)
     .then(changeData => {
