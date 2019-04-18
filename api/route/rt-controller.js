@@ -14,7 +14,7 @@ async function getPunch() {
 }
 
 function findById(id) {
-    return db('users')
+    return db('relation_table')
         .where('id', '=', id)
         .first();
     }
