@@ -11,14 +11,15 @@ function find() {
 return db('users').select('id', 'username', 'password','role','name','email');
 }
 
-function findBy(filter) {
-return db('users').where(filter);
+async function findBy(username) {
+    const [user] = await db('users').where('username', '=', username)
+    return user
 }
 
 async function add(user) {
-const [id] = await db('users').returning('id').insert(user);
+    const [id] = await db('users').returning('id').insert(user);
 
-return findById(id);
+    return findById(id);
 }
 
 function findById(id) {
