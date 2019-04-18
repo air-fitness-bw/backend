@@ -17,7 +17,7 @@ router.get("/" ,(req, res) => {
     });
 });
 //get class by ID
-router.get("/" , auth , (req, res) => {
+router.get("/" , (req, res) => {
     
     Class.getClassById(req.decodedToken.id)
     .then(data => {
