@@ -6,7 +6,8 @@ module.exports = {
     addCl,
     updateClass,
     deleteClass,
-
+    getInstructorClasses,
+    getClientClasses,
 };
 
 async function getClass() { 
@@ -38,6 +39,16 @@ async function addCl(data) {
 
     const newClass = await getClassById(id);
     return newClass;
+}
+
+async function getInstructorClasses(id) {
+    const classes = await db('class').where('instructor_id', '=', id)
+    return classes
+}
+
+async function getClientClasses(id) {
+    const classes = await db('class').where(' client_id', '=', id)
+    return classes
 }
 
 async function updateClass(id, changes) {
