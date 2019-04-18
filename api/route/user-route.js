@@ -16,7 +16,7 @@ Users.find()
 
 //register
 router.post('/reg', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, role } = req.body;
     const newUser = req.body;
 
 if (password) {
