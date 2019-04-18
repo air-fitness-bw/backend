@@ -24,18 +24,14 @@ async function getClassById(id) {
 }
 
 async function addCl(data) {
-    console.log('data', data)
     const newData = {
         ...data, 
-        price: Number(data.price),
-        instructor_id: Number(data.instructor_id)
+        price: Number(data.price)
     };
-    console.log('newData', newData)
 
     const [id] = await db("class")
         .insert(newData)
         .returning('id');
-    console.log(id);
 
     const newClass = await getClassById(id);
     return newClass;

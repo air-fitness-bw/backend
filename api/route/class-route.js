@@ -62,8 +62,7 @@ router.get("/role", async (req, res) => {
 //post class
 router.post("/" ,(req, res) => {
     console.log('decded: ', req.decodedJwt);
-    //req.decodedToken.role ==
-Class.addCl(req.body)
+Class.addCl({...req.body, instructor_id: req.decodedJwt.subject})
     .then(data => {
     res.status(201).json(data);
     })
