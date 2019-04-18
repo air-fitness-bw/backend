@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
         res.status(500).json(error);
     });
 });
-//get classs by ID
+//get class by ID
 router.get("/:id", (req, res) => {
     Class.getClassById(req.params.id)
     .then(data => {
@@ -31,6 +31,7 @@ router.get("/:id", (req, res) => {
     });
 });
 //post class
+
 router.post("/", (req, res) => {
 Class.addCl(req.body)
     .then(data => {
@@ -40,7 +41,7 @@ Class.addCl(req.body)
     res.status(500).json(error);
     });
 });
-
+// edit class
 router.put("/:id", (req, res) => {
     Class.updateClass(req.params.id, req.body)
     .then(changeData => {

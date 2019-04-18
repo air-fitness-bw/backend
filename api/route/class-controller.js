@@ -23,12 +23,21 @@ async function getClassById(id) {
 }
 
 async function addCl(data) {
-    const [id] = await db("class")
-        .insert(data)
-        .returning("name");
+    console.log('data', data)
+    const newData = {
+        ...data, 
+        price: Number(data.price),
+        instructor_id: Number(data.instructor_id),
+        uses: Number(data.uses)
+    };
+    console.log('newData', newData)
+
+    const id = await db("class")
+        .insert(newData)
+        .returning('id');
+    console.log(id);
 
     const newClass = await getClassById(id);
-
     return newClass;
 }
 
