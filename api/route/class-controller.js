@@ -27,8 +27,7 @@ async function addCl(data) {
     const newData = {
         ...data, 
         price: Number(data.price),
-        instructor_id: Number(data.instructor_id),
-        uses: Number(data.uses)
+        instructor_id: Number(data.instructor_id)
     };
     console.log('newData', newData)
 
