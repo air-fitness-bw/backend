@@ -25,16 +25,32 @@ Postgresql used in production.
 
 # RESTful API end points
 
+### 🌐 API
+
+`Link to the deployed API:`
+https://airfitness-backend.herokuapp.com/
+
+***
+
+## ENDPOINTS
+
+
 ### 📦  GET 
 
 List of users
  ```/api/users```
+ 
+ Full List of Classes 
+ `api/class/all`
 
- List of classes
- ```/api/class``` 
+ List of classes by role
+ ```/api/class/role``` 
 
  List classes by id
- `/api/class/:id`
+ `/api/class/solo/:id`
+
+ List Class Passes
+ `api/punch`
 
 ### 💾 POST 
 
@@ -47,15 +63,24 @@ Register
 Create Class
 `/api/class`
 
+Purchase Class
+`api/punch`
+
 ### ✒️ PUT
 
 Edit Class
 `/api/class/:id`
 
+Update Class Uses
+`api/punch/:id`
+
 ### ❌ DELETE
 
 Delete Class 
 `/api/class/:id`
+
+Delete your Class Punch Card
+`api/punch/:id`
 
 # Misc
 ### Random Message Function
