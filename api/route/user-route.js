@@ -30,10 +30,9 @@ if ((!username, !password, !role)) {
     .status(400)
     .json({ message: 'Username and password required, please try again.' });
 }
-
 try {
     const user = await Users.add(newUser);
-
+    console.log(user);
     if (user) {
     const token = tokenGenerator.newToken(user);
         res.status(201).json({
