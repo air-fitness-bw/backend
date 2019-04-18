@@ -27,8 +27,8 @@ exports.seed = function(knex) {
         },
         {
           price: 200 ,
-          name: '2019/04/30',
-          start_date:'January 1st 10am',
+          name: 'Photography Jog',
+          start_date:'2019/04/30',
           schedule:'Every Sunday Morning 8am',
           location:'Start at Beacon Ave',
           zipcode:'91210',
