@@ -19,10 +19,9 @@ Sqlite3 used for development.
 
 Postgresql used in production.
 
-img:
-pending
 
-![]()
+
+![schema pic](./schema-info/sch.png)
 
 # RESTful API end points
 
