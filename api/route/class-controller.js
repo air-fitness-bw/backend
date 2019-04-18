@@ -16,7 +16,7 @@ async function getClass() {
 
 async function getClassById(id) {
     const c = await db("class")
-    .where({ id })
+    .where('id', '=', id)
     .first();
 
     return c;
@@ -31,7 +31,7 @@ async function addCl(data) {
     };
     console.log('newData', newData)
 
-    const id = await db("class")
+    const [id] = await db("class")
         .insert(newData)
         .returning('id');
     console.log(id);
