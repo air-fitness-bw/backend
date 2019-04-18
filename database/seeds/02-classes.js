@@ -8,7 +8,7 @@ exports.seed = function(knex) {
         {
           price: 30 ,
           name: 'Combat Yoga',
-          start_date:'Monday, April 2nd at 830am',
+          start_date:'2019/04/19',
           schedule:'Every Monday and Tuesday at 830am',
           location:'In the vacant lot behind the Ralphs on 23rd street',
           zipcode:'33486',
@@ -18,7 +18,7 @@ exports.seed = function(knex) {
         {
           price: 45 ,
           name: 'Ro Sam Bo in the Morning',
-          start_date:'Thursday, June 2nd 7am',
+          start_date:'2019/04/22',
           schedule:'Every Thursday at 7am and 7pm',
           location:'In the vacant lot behind the Ralphs on 23rd street',
           zipcode:'33486',
@@ -27,7 +27,7 @@ exports.seed = function(knex) {
         },
         {
           price: 200 ,
-          name: 'Run Photography lessons',
+          name: '2019/04/30',
           start_date:'January 1st 10am',
           schedule:'Every Sunday Morning 8am',
           location:'Start at Beacon Ave',
