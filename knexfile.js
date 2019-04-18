@@ -1,3 +1,4 @@
+require('dotenv').config();
 const localPg ={
   host: 'localhost',
   database: 'dev',
@@ -19,22 +20,6 @@ module.exports = {
       seeds: {
         directory: './database/seeds',
       }
-  },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'dev_db',
-      user:     'wxr',
-      password: '%password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   },
 
   production: {
