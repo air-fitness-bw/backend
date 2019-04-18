@@ -2,10 +2,9 @@ const db = require("../../database/dbconfig");
 
 module.exports = {
     getPunch,
-    getClassById,
     addPunch,
-    updateClass,
-    deleteClass,
+    updatePunch,
+    deletePunch,
 
 };
 
@@ -14,31 +13,30 @@ async function getPunch() {
     return classes;
 }
 
-async function getClassById(id) {
-    const c = await db("relation_table")
-    .where({ id })
-    .first();
-
-    return c;
-}
-
 async function addPunch(data) {
     const [id] = await db('relation_table').returning('id').insert(data);
 
     return findById(id);
 }
 
-async function updateClass(id, changes) {
+//function below is only called within this controller for updatePunch
+async function getPunchesById(id) {
+    const c = await db("relation_table")
+    .where('id', '=', id)
+    .first();
+
+    return c;
+}
+
+async function updatePunch(id, changes) {
     const update = await db("relation_table")
         .where({ id })
         .update(changes);
-
-    const putClass = await getClassById(update);
-
-    return putClass;
+    const putPunch = await getPunchesById(update)
+    return putPunch;
 }
 
-async function deleteClass(id) {
+async function deletePunch(id) {
     const deleted = await db("relation_table")
     .where({id })
     .del();
