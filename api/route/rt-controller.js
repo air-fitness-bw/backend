@@ -13,9 +13,15 @@ async function getPunch() {
     return classes;
 }
 
-async function addPunch(data) {
-    const [id] = await db('relation_table').returning('id').insert(data);
+function findById(id) {
+    return db('relation_table')
+        .where('id', '=', id)
+        .first();
+    }
 
+async function addPunch(data) { 
+    const [id] = await db('relation_table').insert(data).returning('id');
+console.log(id);
     return findById(id);
 }
 
@@ -38,8 +44,9 @@ async function updatePunch(id, changes) {
 
 async function deletePunch(id) {
     const deleted = await db("relation_table")
-    .where({id })
+    .where({ id })
     .del();
 
     return deleted;
+    
 }

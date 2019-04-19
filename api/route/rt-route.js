@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const r = require('./rt-controller')
+const relationTable = require('./rt-controller')
 
 router.get("/" ,(req, res) => {
-    r.getPunch()
+    relationTable.getPunch()
     .then(data => {
     if (data.length) {
         res.status(200).json(data);
@@ -14,25 +14,26 @@ router.get("/" ,(req, res) => {
         res.status(500).json(error);
     });
 });
-//returns empty bracket but adds to database
+
 router.post("/", (req, res) => {
-    r.addPunch(req.body)
-        .then(data => {
-        res.status(201).json(data);
-        })
-        .catch(error => {
+    relationTable.addPunch(req.body) 
+    try{
+        console.log(req.body);
+        
+        {res.status(201).json({message: 'Yes! something was added!'});
+        }}
+        catch(error) {
         res.status(500).json(error);
-        });
-    }); 
+    }});
 
 //put 
 router.put("/:id", (req, res) => {
-    r.updatePunch(req.params.id, req.body)
+    relationTable.updatePunch(req.params.id, req.body)
     .then(changeData => {
     if (changeData) {
         res.status(200).json(changeData);
     } else {
-        res.status(404).json({ message: "no pucnh card for that class" });
+        res.status(404).json({ message: "no punch card for that class" });
     }
     })
     .catch(error => {
@@ -41,7 +42,7 @@ router.put("/:id", (req, res) => {
 });
 //delete
 router.delete("/:id", (req, res) => {
-    r.deletePunch(req.params.id)
+    relationTable.deletePunch(req.params.id)
     .then(bad => {
         if (bad) {
         res.status(200).json({ message: "punch deleted, if there was a probelem with your purchase please call 123-555-7032" });

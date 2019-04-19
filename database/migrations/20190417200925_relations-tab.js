@@ -1,7 +1,7 @@
-exports.up = function(knex, Promise) {
+exports.up = function(knex) {
     return knex.schema.createTable('relation_table', table => {
         table.increments();
-        table.integer('uses');
+        table.integer('uses').defaultTo(10);
         table
             .integer('user_id')
             .unsigned()
@@ -10,16 +10,16 @@ exports.up = function(knex, Promise) {
             .onDelete("CASCADE")
             .onUpdate("CASCADE");
         table
-            .integer('class_id')
+            .string('class_name')
             .unsigned()
-            .references('id')
+            .references('name')
             .inTable('class')
             .onDelete("CASCADE")
             .onUpdate("CASCADE");
     });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function(knex) {
     return knex.schema.dropTableIfExists('relation_table');
 };
 

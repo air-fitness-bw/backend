@@ -3,7 +3,7 @@ exports.up = function(knex) {
     c.increments();
 
     c.decimal('price').notNullable();
-    c.string('name', 255).notNullable();
+    c.string('name', 255).unique().notNullable();
     c.date("start_date").notNullable();
     c.string('schedule', 255);
     c.string('location', 255);
