@@ -59,7 +59,7 @@ async function updateClass(id, changes) {
 
 async function deleteClass(id) {
     const deleted = await db("class")
-    .where({id })
+    .where({ id })
     .del();
 
     return deleted;

@@ -10,9 +10,9 @@ exports.up = function(knex, Promise) {
             .onDelete("CASCADE")
             .onUpdate("CASCADE");
         table
-            .integer('class_id')
+            .string('class_name')
             .unsigned()
-            .references('id')
+            .references('name')
             .inTable('class')
             .onDelete("CASCADE")
             .onUpdate("CASCADE");

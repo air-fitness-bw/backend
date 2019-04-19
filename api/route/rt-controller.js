@@ -44,7 +44,7 @@ async function updatePunch(id, changes) {
 
 async function deletePunch(id) {
     const deleted = await db("relation_table")
-    .where({id })
+    .where({ id })
     .del();
 
     return deleted;
