@@ -1,4 +1,4 @@
-exports.up = function(knex, Promise) {
+exports.up = function(knex) {
     return knex.schema.createTable('relation_table', table => {
         table.increments();
         table.integer('uses').defaultTo(10);
@@ -13,13 +13,13 @@ exports.up = function(knex, Promise) {
             .string('class_name')
             .unsigned()
             .references('name')
-            .inTable('class')
+            .inTable('name')
             .onDelete("CASCADE")
             .onUpdate("CASCADE");
     });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function(knex) {
     return knex.schema.dropTableIfExists('relation_table');
 };
 
