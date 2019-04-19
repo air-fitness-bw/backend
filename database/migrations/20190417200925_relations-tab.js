@@ -13,7 +13,7 @@ exports.up = function(knex) {
             .string('class_name')
             .unsigned()
             .references('name')
-            .inTable('name')
+            .inTable('class')
             .onDelete("CASCADE")
             .onUpdate("CASCADE");
     });
